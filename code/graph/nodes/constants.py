@@ -1,0 +1,5 @@
+RETRIEVE_AND_DECIDE = "retrieve_and_decide"
+ANSWER_UNCLASSIFIED = "answer_unclassified"
+GENERATE_RESPONSE = "generate_response"
+CLASSIFY_PRODUCT_AREA = "classify_product_area"
+CLASSIFY_REQUEST_TYPE = "classify_request_type"
