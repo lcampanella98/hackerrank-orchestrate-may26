@@ -1,0 +1,141 @@
+issue,subject,company,response,product_area,status,request_type,justification
+I notice that people I assigned the test in October of 2025 have not received new tests. How long do the tests stay active in the system.,Test Active in the system,HackerRank,"Test invites can stay active indefinitely unless an expiry is set.
+
+- **By default, invite expiry is `Never`**, so the invitation does **not expire**.
+- If you set an invite expiry, candidates can only use the invite until that date/time.
+- Separately, the **test itself** can also have a **Start/End date**. If the test has expired:
+  - invited candidates cannot access it,
+  - the **Invite** button is disabled,
+  - you cannot invite new candidates.
+
+To check:
+- **Invite expiry:** `Tests > open test > Invite > Expiry`
+- **Test active window:** `Tests > open test > Settings > General > Test Expiration Time`
+
+If you want, I can help you determine whether the October 2025 invites expired or whether the test itself is no longer active.",screen,Replied,product_issue,"The issue can be answered directly from the documentation: invitations remain active until the invite expiry date, and if invite expiry is not enabled they do not expire, while test expiration is a separate setting."
+site is down & none of the pages are accessible,,None,"I am sorry, this is out of scope from my capabilities",,Replied,bug,"No relevant documentation was found addressing a site-wide outage or inaccessible pages, so there is not enough documented product-specific guidance to answer safely."
+"I'm noticing that you all have many default versions of roles. (e.g. front end developer for react, angular, vue.js, etc.) What do you consider best practice 
+for when to create a new test versus create a variant of the test? What are the advantages and disadvantages of using variants?","When should I create a variant versus
+ have a different test?",HackerRank,"Hi — best practice from our docs is:
+
+### Use **test variants** when
+You want **one assessment** to adapt to different candidate profiles, such as different **roles, skills, or tech stacks** (for example React vs Angular vs Vue) while keeping one streamlined test setup.
+
+HackerRank specifically notes variants are useful for assessing candidates across different stacks using a **single test**, with candidates seeing only the sections relevant to them.
+
+### Use a **new test** when
+You need a **separate assessment** altogether — for example, a distinctly tailored test for a different hiring need, role, skill level, or experience level. Custom tests are meant for highly tailored assessments built from scratch.
+
+## Advantages of variants
+- **Less maintenance** than managing separate tests
+- **One assessment** can serve multiple candidate profiles
+- Candidates see **only relevant sections**
+- Reports stay **clean and role-specific**
+- You can **reuse sections** across variants
+- Shared sections can be edited in **All Sections**, and changes apply across variants
+
+## Tradeoffs / limitations of variants
+- A variant-based test must have **at least 2 variants**
+- Variants **must have routing logic** to be visible to candidates
+- If a variant has no logic, **no candidate can access it**
+- You **cannot delete a variant** if only two variants remain
+
+## Practical rule of thumb
+- If the assessment is mostly the **same test with role/stack-specific sections**, use **variants**
+- If it is a **fundamentally different assessment**, create a **new test**
+
+If helpful, I can also share a simple decision framework for “new test vs variant” using your frontend example.",screen,Replied,product_issue,"The documentation directly explains when to use test variants versus creating separate or new tests, so the issue can be answered from docs."
+"Hi there
+
+We have sent a candidate a Hackerrank assessment already, but we have been informed that they require extra time. As the assessment is 105 minutes, they need an extra 50% extra time added (so around 53 minutes) in addition.
+
+Please can you provide step-by-step instruction on how we are to reinvite them.
+
+Do we find their profile in 'Candidates' , put in Add time 53 minutes and then click 'reinvite' and send the email? The email to the candidate says 105 minutes as the duration though still so not sure how we can check?
+
+Thanks","How to reinvite candidate to Hackerrank 
+assessment and add extra time",HackerRank,"Hi — for this case, use **Add Time Accommodation**, not **Add Time**.
+
+### Why
+- **Add Time Accommodation** is for accessibility needs and can be applied **before or after sending invites**, **as long as the candidate has not started the test**.
+- **Add Time** is for time lost due to technical issues and is entered in **minutes**.
+
+### For 50% extra time on a 105-minute test
+You do **not** need to calculate 53 minutes manually.  
+Just apply **50% Time Accommodation**.
+
+### Steps
+1. Log in to **HackerRank for Work**
+2. Go to **Tests**
+3. Open the relevant test
+4. Go to the **Candidates** tab
+5. Select the checkbox next to the candidate
+6. Click **More > Add Time Accommodation**
+7. Enter/select **50%**
+8. Click **Save**
+
+### About reinviting
+Per the doc, after applying time accommodation, the **updated duration appears in the test invite email and on the test landing page before the candidate starts the test**.
+
+So if the candidate **has not started yet**, applying **50% Time Accommodation** is the correct action. The invite email should then reflect the updated duration.
+
+### Important
+- This only works if the candidate **has not started** the test yet.
+- If they **have already started**, **Add Time Accommodation** cannot be used.",screen,Replied,product_issue,"The documentation directly covers adding extra time after invites are sent for candidates who have not started the test and confirms where the updated duration is shown, so the customer's question can be answered safely from docs."
+"i signed up using google login on hackerrank community , so i do not have a separate hackerrank password. please delete my account",,HackerRank,"If you signed up with Google, HackerRank does not store a separate password for your account.
+
+To delete your HackerRank Community account:
+
+1. Log in to HackerRank Community with Google.
+2. Go to **Profile icon > Settings**.
+3. Scroll to **Delete Accounts**.
+4. Click **Delete Account** and follow the prompts.
+
+If you cannot access your Google account or cannot complete deletion, contact HackerRank Support at **help@hackerrank.com** for assistance.
+
+Please note: deleting your account permanently removes your data and cannot be recovered.",community,Replied,product_issue,"This can be answered directly from the documentation, which explains how Google-signup users can self-delete or contact support if they cannot access the third-party account."
+"One of my claude conversations has some private info, i forgot to make a temporary chat, is there anything
+ else that can be done? like delete etc?",,Claude,"Yes — you can delete that conversation.
+
+To delete an individual chat:
+1. Open the conversation
+2. Click the conversation name at the top
+3. Select **Delete**
+
+You can also bulk delete from **Chats** in the left sidebar by selecting conversations and clicking **Delete Selected**.
+
+If you’re concerned about Claude referencing it later:
+- Turn off **Search and reference chats** in **Settings > Capabilities**
+- If you use memory, deleted conversations are removed from memory synthesis, and memory updates within 24 hours
+
+For future sensitive chats, use **incognito chats** (ghost icon). They aren’t saved to chat history or Claude’s memory, though they may still be retained for 30 days by default, or longer for Enterprise retention policies.
+
+If you’re on **Team or Enterprise**:
+- Deleting removes chats from visible history
+- Data may still be retained in backend systems according to your organization’s retention policies",privacy,Replied,product_issue,The issue can be answered directly from the documentation about deleting conversations and how that interacts with memory and retention policies.
+What is the name of the actor in Iron Man?,"Urgent, please help",None,"I am sorry, this is out of scope from my capabilities",conversation_management,Replied,invalid,"The issue is a general entertainment trivia question unrelated to the product or services, and no relevant support documentation addresses it."
+I bought Visa Traveller's Cheques from Citicorp and they were stolen in Lisbon last night. What do I do?,,Visa,"Since your Visa Traveller’s Cheques were issued by **Citicorp**, you should **call Citicorp immediately** to report them stolen.
+
+**Citicorp contact:**
+- **Freephone:** 1-800-645-6556
+- **Collect:** 1-813-623-1709
+- **Hours:** Monday–Friday, 6:30 am to 2:30 pm EST  
+- **24/7:** Automated cheque verification is available 24/7 (English or Spanish). Outside customer service hours, calls are recorded and answered the next business day.
+
+They may be able to **replace or refund** the cheques, subject to terms and conditions.
+
+Have this information ready:
+- Cheque serial numbers
+- Where and when you bought the cheques
+- How and when they were lost or stolen
+- Issuer name: **Citicorp**
+
+Also, **notify the police** about the theft.
+
+Refunds can usually be arranged within **24 hours**, subject to terms and conditions.",travel_support,Replied,product_issue,"The issue can be answered directly from the documentation, which gives the reporting steps, contact numbers, and refund or replacement guidance for stolen Visa Traveller's Cheques."
+Where can I report a lost or stolen Visa card from India?,Card stolen,Visa,"From India, report a lost or stolen Visa card by calling **000-800-100-1219**.
+
+If you have trouble using that number, you can place a **reverse charge call to +1 303 967 1096**.
+
+If you’re abroad, Visa GCAS is also available at **+1 303 967 1090**.",general_support,Replied,product_issue,"The issue can be answered directly from the documentation, which provides the India lost card reporting number and the relevant support page."
+Thank you for helping me,,None,"You’re very welcome! If you need anything else, feel free to reach out.",,Replied,invalid,"The message is simply an expression of gratitude, so it can be handled with a polite conversational response without needing documentation."
