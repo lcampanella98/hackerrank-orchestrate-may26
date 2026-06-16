@@ -6,21 +6,24 @@ generation (RAG) grounded strictly in each domain's support corpus.
 
 For every ticket the agent decides whether it can answer safely or should escalate
 to a human, classifies the request, identifies the product area, and drafts a
-grounded, citation-backed response. Built for the HackerRank Orchestrate hackathon;
-the full challenge spec is in [`PROBLEM_README.md`](./PROBLEM_README.md).
+grounded response.
 
-## Highlights
+This was built in ~24 hours for the HackerRank Orchestrate hackathon, so it's a
+working prototype rather than a polished product — see [Known gaps](#known-gaps-and-next-steps)
+below. The full challenge spec is in [`PROBLEM_README.md`](./PROBLEM_README.md).
+
+## What it does
 
 - **Agentic RAG over a graph.** Orchestrated with LangGraph as a state graph: a
   tool-using retrieval agent drives the decision, then three classification/generation
-  nodes run **in parallel**.
-- **Grounded by design.** The agent answers only from the provided corpus and is
+  nodes run in parallel.
+- **Tries to stay grounded.** The agent retrieves from the provided corpus and is
   prompted not to invent policies; unsupported or high-risk tickets are escalated
-  rather than guessed at.
-- **Safe termination.** Custom middleware strips the agent's tools after a tool-call
-  budget is reached, forcing it to commit to a structured decision instead of looping.
+  rather than guessed at. (Grounding is prompt-enforced, not yet verified — see below.)
+- **Bounded tool use.** Custom middleware strips the agent's tools after a tool-call
+  budget is reached, so it commits to a structured decision instead of looping indefinitely.
 - **Structured, deterministic output.** Pydantic schemas + `temperature=0` keep
-  results predictable and easy to evaluate against expected signals.
+  results predictable and easier to compare against the labeled sample set.
 - **Per-domain vector stores.** Each corpus is embedded into its own Chroma collection,
   so retrieval stays scoped to the relevant ecosystem.
 
@@ -119,9 +122,18 @@ data/                       # support corpora: claude/, hackerrank/, visa/
 support_tickets/            # input CSVs + generated output.csv
 ```
 
-## Possible improvements
+## Known gaps and next steps
 
-- Few-shot examples for request-type classification (currently relies on instructions only).
-- Confidence scoring on the retrieval decision to tune the reply/escalate threshold.
-- Caching embeddings and retrieval results to cut repeat-run cost and latency.
-- An automated eval harness scoring `output.csv` against the labeled sample set.
+Given the 24-hour timebox, a few things are intentionally rough or unfinished:
+
+- **No grounding verification.** Faithfulness to the corpus is enforced only through
+  prompting, not checked after generation.
+- **No self-eval loop.** Final scoring is HackerRank's, but the labeled
+  `sample_support_tickets.csv` could drive a quick dev-time accuracy check to guide
+  iteration — I didn't build one.
+- **Request-type classification relies on instructions only** — it would likely
+  benefit from few-shot examples like the product-area node already uses.
+- **No explicit handling of malicious tickets.** The spec allows for prompt-injection
+  or otherwise malicious ticket text, but I saw none in the sample or scored tickets,
+  so I didn't build dedicated defenses for it.
+- **No confidence scoring** on the reply/escalate decision to tune the threshold.
